@@ -1,35 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import Keypad from './components/Keypad'
+import Display from './components/Display'
+import { useCalculatorLogic } from './hooks/useCalculatorLogic'
+function App () {
+  const { display, appendValue, handleEqual, handleOperator, clear } = useCalculatorLogic()
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='min-h-screen flex items-center justify-center bg-gray-100'>
+      <div className='bg-white p-6 rounded-lg shadow-xl w-80'>
+        <Display value={display} />
+        <Keypad onNumber={appendValue} onOperator={handleOperator} onEqual={handleEqual} onClear={clear} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
-
 export default App
