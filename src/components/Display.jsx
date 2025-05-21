@@ -1,7 +1,8 @@
-export default function Display ({ value }) {
-     return (
-       <div class='bg-black text-white text-right p-4 text-3xl rounded h-20 overflow-hidden'>
-         {value}
-       </div>
-     )
-   }
+export default function Display({ value, expression }) {
+  return (
+    <div className="bg-black text-white p-4 rounded mb-4">
+      <div className="text-right text-sm text-gray-400 h-5">{expression}</div>
+      <div className="text-right text-2xl">{value}</div>
+    </div>
+  )
+}
