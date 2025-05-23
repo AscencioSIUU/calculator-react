@@ -10,7 +10,7 @@ export function useCalculatorLogic() {
      const appendValue = (value) => {
           if (result === 'ERROR') return
           if (value === '.') {
-               if (currentValue.includes('.')) return 
+               if (currentValue.includes('.')) return
                if (currentValue === '') {
                     setCurrentValue('0.')
                     setExpression(prev => prev + '0.')
@@ -33,8 +33,8 @@ export function useCalculatorLogic() {
                setResult(updated)
           }
      }
-        
-        
+
+
      const handleOperator = (op) => {
           if (result === 'ERROR') return
           if (currentValue === '') return
@@ -54,7 +54,7 @@ export function useCalculatorLogic() {
           setExpression(prev => prev + op)
           setCurrentValue('')
      }
-        
+
      const handleEqual = () => {
           if (accumulated === null || operator === null || currentValue === '') return
           const res = calculate(accumulated, Number(currentValue), operator)
